@@ -1,9 +1,14 @@
 import Grid from '@mui/material/Grid';
 import { makeStyles } from '@mui/styles';
+import background from "../Assets/img/home.jpg";
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: 'red'
+    backgroundImage: `url(${background})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPositionX: "right"
+    //if mobile, use backgroundPositionY: 20% either with Size cover or 100% (and extra space for the services)
   },
 });
 
