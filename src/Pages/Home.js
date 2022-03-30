@@ -18,7 +18,7 @@ function Home() {
 
     return (
         <Grid id="home" className={`${classes.root} full-height`}>
-            Home
+            
         </Grid>
     )
 }
