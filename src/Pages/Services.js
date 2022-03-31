@@ -1,14 +1,16 @@
 import Grid from '@mui/material/Grid';
 import { makeStyles } from '@mui/styles';
+import ServiceCard from '../Components/ServiceCard';
 
 const useStyles = makeStyles({
   root: {
     minHeight: "100vh",
-    backgroundColor: "#586062",
+    //backgroundColor: "#586062",
     padding: "10%"
   },
   container: {
-    backgroundColor: "white",
+    backgroundColor: "#586062",
+    color: "white"
   }
 });
 
@@ -19,7 +21,7 @@ function Services() {
     return (
         <Grid container id="services" className={classes.root}>
             <Grid container item className={classes.container}>
-                Services
+                <ServiceCard />
             </Grid>
         </Grid>
     )
