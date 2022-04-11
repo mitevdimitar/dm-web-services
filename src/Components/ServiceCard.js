@@ -6,11 +6,25 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import frontEnd from "../Assets/img/front-end.jpg";
 import Avatar from '@mui/material/Avatar';
+import { makeStyles } from '@mui/styles';
 
-export default function ServiceCard() {
+const useStyles = makeStyles({
+  root: {
+    height: 300,
+    width: "100%"
+  },
+  actionArea: {
+    minHeight: 300
+  }
+});
+
+
+function ServiceCard() {
+  const classes = useStyles();
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+    <Card className={classes.root}>
+      <CardActionArea className={classes.actionArea}>
         <CardHeader
             avatar={
             <Avatar aria-label="front-end-service" alt="computer" src={frontEnd} />
@@ -25,3 +39,5 @@ export default function ServiceCard() {
     </Card>
   );
 }
+
+export default ServiceCard;

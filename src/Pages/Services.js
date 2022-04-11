@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     padding: "10%"
   },
   container: {
-    backgroundColor: "#586062",
+    //backgroundColor: "#586062",
     color: "white"
   }
 });
@@ -20,7 +20,13 @@ function Services() {
 
     return (
         <Grid container id="services" className={classes.root}>
-            <Grid container item className={classes.container}>
+            <Grid container item xs={4} className={classes.container}>
+                <ServiceCard />
+            </Grid>
+            <Grid container item xs={4} className={classes.container}>
+                <ServiceCard />
+            </Grid>
+            <Grid container item xs={4} className={classes.container}>
                 <ServiceCard />
             </Grid>
         </Grid>
