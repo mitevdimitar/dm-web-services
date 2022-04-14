@@ -27,7 +27,7 @@ function ServiceCard() {
       <CardActionArea className={classes.actionArea}>
         <CardHeader
             avatar={
-            <Avatar aria-label="front-end-service" alt="computer" src={frontEnd} />
+              <Avatar aria-label="front-end-service" alt="computer" src={frontEnd} />
             }
         />
         <CardContent>
