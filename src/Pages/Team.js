@@ -4,7 +4,7 @@ import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles({
   root: {
     minHeight: "100vh",
-    backgroundColor: "#586062",
+    backgroundColor: "#BDBDBD",
     padding: "10%",
     color: "white"
   },

@@ -1,5 +1,6 @@
 import Grid from '@mui/material/Grid';
 import { makeStyles } from '@mui/styles';
+import { useState } from 'react';
 import ServiceCard from '../Components/ServiceCard';
 
 const useStyles = makeStyles({
@@ -8,7 +9,7 @@ const useStyles = makeStyles({
     //backgroundColor: "#586062",
     padding: "10%"
   },
-  container: {
+  cardContainer: {
     //backgroundColor: "#586062",
     color: "white"
   }
@@ -16,19 +17,27 @@ const useStyles = makeStyles({
 
 
 function Services() {
+    const [info, setInfo] = useState(null);
     const classes = useStyles();
 
     return (
         <Grid container id="services" className={classes.root}>
-            <Grid container item xs={4} className={classes.container}>
-                <ServiceCard />
+            <Grid container item>
+              <Grid container item xs={4} className={classes.cardContainer} onClick={() => setInfo('front-end')}>
+                  <ServiceCard />
+              </Grid>
+              <Grid container item xs={4} className={classes.cardContainer}>
+                  <ServiceCard />
+              </Grid>
+              <Grid container item xs={4} className={classes.cardContainer}>
+                  <ServiceCard />
+              </Grid>
             </Grid>
-            <Grid container item xs={4} className={classes.container}>
-                <ServiceCard />
-            </Grid>
-            <Grid container item xs={4} className={classes.container}>
-                <ServiceCard />
-            </Grid>
+            {info && (
+              <Grid container item>
+                Info container
+              </Grid>
+            )}
         </Grid>
     )
 }
