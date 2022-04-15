@@ -3,6 +3,7 @@ import './App.css';
 import MenuBar from "./Components/AppBar";
 import Services from './Pages/Services';
 import Team from './Pages/Team';
+import Footer from './Components/Footer';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Home />
       <Services />
       <Team />
+      <Footer />
     </div>
   );
 }
