@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardHeader from '@mui/material/CardHeader';
+import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import frontEnd from "../Assets/img/front-end.jpg";
@@ -19,20 +19,20 @@ const useStyles = makeStyles({
 });
 
 
-function ServiceCard() {
+function ServiceCard({
+  service
+}) {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardActionArea className={classes.actionArea}>
-        <CardHeader
-            avatar={
-              <Avatar aria-label="front-end-service" alt="computer" src={frontEnd} />
-            }
-        />
+        <Grid container justifyContent="center">
+          <Avatar aria-label="front-end-service" alt="computer" src={frontEnd} sx={{ width: 85, height: 85 }} />
+        </Grid>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Front end services
+            {service}
           </Typography>
         </CardContent>
       </CardActionArea>

@@ -18,7 +18,8 @@ const useStyles = makeStyles({
   },
   cardContainer: {
     //backgroundColor: "#586062",
-    color: "white"
+    color: "white",
+    padding: "0 15px"
   },
   infoContainer: {
     height: "100%",
@@ -38,13 +39,13 @@ function Services() {
         <Grid container id="services" className={classes.root}>
             <Grid container item className={classes.cardsContainer}>
               <Grid container item xs={4} className={classes.cardContainer} onClick={() => setInfo('front-end')}>
-                  <ServiceCard />
+                  <ServiceCard service="Front end development" />
               </Grid>
               <Grid container item xs={4} className={classes.cardContainer}>
-                  <ServiceCard />
+                  <ServiceCard service="Seo optimization" />
               </Grid>
               <Grid container item xs={4} className={classes.cardContainer}>
-                  <ServiceCard />
+                  <ServiceCard service="Online coaching" />
               </Grid>
             </Grid>
             {info && (
