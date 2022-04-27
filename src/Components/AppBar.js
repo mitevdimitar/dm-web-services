@@ -13,11 +13,11 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { makeStyles } from '@mui/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   appBar: {
-    backgroundColor: "#586062 !important",
+    backgroundColor: theme.palette.primary.main,
   },
-});
+}));
 
 const pages = ['Services', 'Team', 'Contacts'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
