@@ -5,12 +5,13 @@ import { makeStyles } from '@mui/styles';
 import { useState } from 'react';
 import ServiceCard from '../Components/ServiceCard';
 import frontEnd from "../Assets/img/front-end.jpg";
+import seo from "../Assets/img/seo.jpg";
 import Button from '@mui/material/Button';
 
 const useStyles = makeStyles({
   root: {
     minHeight: "100vh",
-    //backgroundColor: "#586062",
+    backgroundColor: "rgb(237, 237, 237)",
     padding: "10%"
   },
   cardsContainer: {
@@ -39,13 +40,22 @@ function Services() {
         <Grid container id="services" className={classes.root}>
             <Grid container item className={classes.cardsContainer}>
               <Grid container item xs={4} className={classes.cardContainer} onClick={() => setInfo('front-end')}>
-                  <ServiceCard service="Front end development" />
+                  <ServiceCard 
+                    service="Front end development"
+                    avatar={frontEnd}
+                  />
               </Grid>
               <Grid container item xs={4} className={classes.cardContainer}>
-                  <ServiceCard service="Seo optimization" />
+                  <ServiceCard 
+                    service="Seo optimization" 
+                    avatar={seo}
+                  />
               </Grid>
               <Grid container item xs={4} className={classes.cardContainer}>
-                  <ServiceCard service="Online coaching" />
+                  <ServiceCard 
+                    service="Online coaching"
+                    avatar={frontEnd}
+                  />
               </Grid>
             </Grid>
             {info && (
