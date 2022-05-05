@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 const useStyles = makeStyles({
   root: {
     minHeight: "100vh",
-    backgroundColor: "rgb(237, 237, 237)",
+    //backgroundColor: "rgb(237, 237, 237)",
     padding: "10%"
   },
   cardsContainer: {
