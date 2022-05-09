@@ -6,7 +6,9 @@ import { useState } from 'react';
 import ServiceCard from '../Components/ServiceCard';
 import frontEnd from "../Assets/img/front-end.jpg";
 import seo from "../Assets/img/seo.jpg";
+import onlineCouching from "../Assets/img/online-couching.jpg";
 import Button from '@mui/material/Button';
+import { SERVICES } from '../Utils/constants';
 
 const useStyles = makeStyles({
   root: {
@@ -39,22 +41,22 @@ function Services() {
     return (
         <Grid container id="services" className={classes.root}>
             <Grid container item className={classes.cardsContainer}>
-              <Grid container item xs={4} className={classes.cardContainer} onClick={() => setInfo('front-end')}>
+              <Grid container item xs={4} className={classes.cardContainer} onClick={() => setInfo(SERVICES.FRONT_END)}>
                   <ServiceCard 
                     service="Front end development"
                     avatar={frontEnd}
                   />
               </Grid>
-              <Grid container item xs={4} className={classes.cardContainer}>
+              <Grid container item xs={4} className={classes.cardContainer} onClick={() => setInfo(SERVICES.SEO)}>
                   <ServiceCard 
                     service="Seo optimization" 
                     avatar={seo}
                   />
               </Grid>
-              <Grid container item xs={4} className={classes.cardContainer}>
+              <Grid container item xs={4} className={classes.cardContainer} onClick={() => setInfo(SERVICES.ONLINE_COACHING)}>
                   <ServiceCard 
                     service="Online coaching"
-                    avatar={frontEnd}
+                    avatar={onlineCouching}
                   />
               </Grid>
             </Grid>
