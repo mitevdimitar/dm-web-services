@@ -26,6 +26,7 @@ const useStyles = makeStyles({
   },
   imageContainer: {
     height: 220,
+    borderRadius: 10,
     backgroundImage: ({avatar}) => (`url(${avatar})`),
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
