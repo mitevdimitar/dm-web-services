@@ -30,7 +30,20 @@ const useStyles = makeStyles({
   },
   header: {
     marginBottom: "20px !important"
-  }
+  },
+  slideRight: {
+    animation: "$slideInRight 2s forwards"
+  },
+  "@keyframes slideInRight": {
+    "0%": {
+      opacity: 0,
+      transform: "translateX(-200px)"
+    },
+    "100%": {
+      opacity: 1,
+      transform: "translateX(0)"
+    }
+  },
 });
 
 
@@ -41,7 +54,7 @@ function Services() {
     return (
         <Grid container id="services" className={classes.root}>
             <Grid container item className={classes.cardsContainer}>
-              <Grid container item xs={4} className={classes.cardContainer} onClick={() => setInfo(SERVICES.FRONT_END)}>
+              <Grid container item xs={4} className={`${classes.cardContainer} ${classes.slideRight}`} onClick={() => setInfo(SERVICES.FRONT_END)}>
                   <ServiceCard 
                     service="Front end development"
                     avatar={frontEnd}
