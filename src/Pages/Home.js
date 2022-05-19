@@ -18,7 +18,7 @@ function Home() {
     const classes = useStyles();
 
     return (
-        <Grid id="home" className={`${classes.root} full-height`}>
+        <Grid id="home" className={`${classes.root} home-height`}>
         </Grid>
     )
 }

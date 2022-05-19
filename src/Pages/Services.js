@@ -9,6 +9,7 @@ import seo from "../Assets/img/seo.jpg";
 import onlineCouching from "../Assets/img/online-couching.jpg";
 import Button from '@mui/material/Button';
 import { SERVICES } from '../Utils/constants';
+import useIsInViewport from "use-is-in-viewport";
 
 const useStyles = makeStyles({
   root: {
@@ -32,7 +33,8 @@ const useStyles = makeStyles({
     marginBottom: "20px !important"
   },
   slideRight: {
-    animation: "$slideInRight 2s forwards"
+    animation: "$slideInRight 1.5s forwards",
+    animationIterationCount: 1
   },
   "@keyframes slideInRight": {
     "0%": {
@@ -50,29 +52,32 @@ const useStyles = makeStyles({
 function Services() {
     const [info, setInfo] = useState(null);
     const classes = useStyles();
+    const [isInViewport, targetRef] = useIsInViewport();
 
     return (
-        <Grid container id="services" className={classes.root}>
-            <Grid container item className={classes.cardsContainer}>
-              <Grid container item xs={4} className={`${classes.cardContainer} ${classes.slideRight}`} onClick={() => setInfo(SERVICES.FRONT_END)}>
-                  <ServiceCard 
-                    service="Front end development"
-                    avatar={frontEnd}
-                  />
+        <Grid container id="services" className={classes.root} ref={targetRef}>
+            {isInViewport && (
+              <Grid container item className={classes.cardsContainer}>
+                <Grid container item xs={4} className={`${classes.cardContainer} ${classes.slideRight}`} onClick={() => setInfo(SERVICES.FRONT_END)}>
+                    <ServiceCard 
+                      service="Front end development"
+                      avatar={frontEnd}
+                    />
+                </Grid>
+                <Grid container item xs={4} className={classes.cardContainer} onClick={() => setInfo(SERVICES.SEO)}>
+                    <ServiceCard 
+                      service="Seo optimization" 
+                      avatar={seo}
+                    />
+                </Grid>
+                <Grid container item xs={4} className={classes.cardContainer} onClick={() => setInfo(SERVICES.ONLINE_COACHING)}>
+                    <ServiceCard 
+                      service="Online coaching"
+                      avatar={onlineCouching}
+                    />
+                </Grid>
               </Grid>
-              <Grid container item xs={4} className={classes.cardContainer} onClick={() => setInfo(SERVICES.SEO)}>
-                  <ServiceCard 
-                    service="Seo optimization" 
-                    avatar={seo}
-                  />
-              </Grid>
-              <Grid container item xs={4} className={classes.cardContainer} onClick={() => setInfo(SERVICES.ONLINE_COACHING)}>
-                  <ServiceCard 
-                    service="Online coaching"
-                    avatar={onlineCouching}
-                  />
-              </Grid>
-            </Grid>
+            ) /* : null */}
             {info && (
               <Grid container item className={classes.infoContainer}>
                 <Grid container item alignItems="center" className={classes.header}>
