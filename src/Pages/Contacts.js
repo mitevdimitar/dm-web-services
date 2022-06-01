@@ -1,5 +1,6 @@
 import Grid from '@mui/material/Grid';
 import { makeStyles } from '@mui/styles';
+import ContactForm from '../Components/ContactForm';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,7 +23,7 @@ function Contacts() {
     return (
         <Grid container id="services" className={classes.root} justifyContent="space-around">
             <Grid container item xs={4} alignItems="center" justifyContent="center" className={classes.contactForm}>
-              Contact form
+              <ContactForm />
             </Grid>
             <Grid container item xs={4} alignItems="center" justifyContent="center">
               Contacts
