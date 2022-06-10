@@ -38,6 +38,7 @@ export default function ContactForm() {
               name="name"
               label="Name"
               id="name"
+              //autoFocus
             />
             <TextField
               margin="normal"
@@ -47,7 +48,6 @@ export default function ContactForm() {
               label="Email Address"
               name="email"
               autoComplete="email"
-              autoFocus
             />
             <TextField
               margin="normal"

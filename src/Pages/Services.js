@@ -46,6 +46,20 @@ const useStyles = makeStyles({
       transform: "translateX(0)"
     }
   },
+  slideLeft: {
+    animation: "$slideInLeft 1.5s forwards",
+    animationIterationCount: 1
+  },
+  "@keyframes slideInLeft": {
+    "0%": {
+      opacity: 0,
+      transform: "translateX(200px)"
+    },
+    "100%": {
+      opacity: 1,
+      transform: "translateX(0)"
+    }
+  },
 });
 
 
@@ -70,7 +84,7 @@ function Services() {
                       avatar={seo}
                     />
                 </Grid>
-                <Grid container item xs={4} className={classes.cardContainer} onClick={() => setInfo(SERVICES.ONLINE_COACHING)}>
+                <Grid container item xs={4} className={`${classes.cardContainer} ${classes.slideLeft}`} onClick={() => setInfo(SERVICES.ONLINE_COACHING)}>
                     <ServiceCard 
                       service="Online coaching"
                       avatar={onlineCouching}
