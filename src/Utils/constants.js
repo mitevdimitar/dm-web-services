@@ -1,5 +1,5 @@
 export const SERVICES = {
-    FRONT_END: 0,
-    SEO: 1,
-    ONLINE_COACHING: 2
+    FRONT_END: 1,
+    SEO: 2,
+    ONLINE_COACHING: 3
 }
