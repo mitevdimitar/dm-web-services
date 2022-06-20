@@ -1,4 +1,4 @@
-const SERVICES = {
+export const SERVICES = {
     FRONTEND: {
         title: "Front-end services",
         keyWord: "ReactJS",

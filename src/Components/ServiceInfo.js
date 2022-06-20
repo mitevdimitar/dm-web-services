@@ -15,8 +15,11 @@ const useStyles = makeStyles({
     },
   });
 
-function ServiceInfo() {
+function ServiceInfo({
+    selectedService
+}) {
     const classes = useStyles();
+    console.log({selectedService})
 
     return (
         <Grid container item className={classes.infoContainer}>

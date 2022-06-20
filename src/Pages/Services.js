@@ -5,7 +5,7 @@ import ServiceCard from '../Components/ServiceCard';
 import frontEnd from "../Assets/img/front-end.jpg";
 import seo from "../Assets/img/seo.jpg";
 import onlineCouching from "../Assets/img/online-couching.jpg";
-import { SERVICES } from '../Utils/constants';
+import { SERVICES } from '../Utils/services';
 import useIsInViewport from "use-is-in-viewport";
 import ServiceInfo from '../Components/ServiceInfo';
 
@@ -63,7 +63,7 @@ function Services() {
         <Grid container id="services" className={classes.root} ref={targetRef}>
             {isInViewport && (
               <Grid container item className={classes.cardsContainer}>
-                <Grid container item xs={4} className={`${classes.cardContainer} ${classes.slideRight}`} onClick={() => setInfo(SERVICES.FRONT_END)}>
+                <Grid container item xs={4} className={`${classes.cardContainer} ${classes.slideRight}`} onClick={() => setInfo(SERVICES.FRONTEND)}>
                     <ServiceCard 
                       service="Front end development"
                       avatar={frontEnd}
@@ -84,7 +84,7 @@ function Services() {
               </Grid>
             ) /* : null */}
             {info && (
-              <ServiceInfo />
+              <ServiceInfo selectedService={info} />
             )}
         </Grid>
     )
