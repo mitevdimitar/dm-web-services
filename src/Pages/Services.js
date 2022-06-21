@@ -75,7 +75,7 @@ function Services() {
                       avatar={seo}
                     />
                 </Grid>
-                <Grid container item xs={4} className={`${classes.cardContainer} ${classes.slideLeft}`} onClick={() => setInfo(SERVICES.ONLINE_COACHING)}>
+                <Grid container item xs={4} className={`${classes.cardContainer} ${classes.slideLeft}`} onClick={() => setInfo(SERVICES.LIVE_COACHING)}>
                     <ServiceCard 
                       service="Online coaching"
                       avatar={onlineCouching}

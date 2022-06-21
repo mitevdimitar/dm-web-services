@@ -4,6 +4,9 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import { makeStyles } from '@mui/styles';
 import frontEnd from "../Assets/img/front-end.jpg";
+import seo from "../Assets/img/seo.jpg";
+import onlineCouching from "../Assets/img/online-couching.jpg";
+import { SERVICES } from '../Utils/services';
 
 const useStyles = makeStyles({
     infoContainer: {
@@ -19,26 +22,33 @@ function ServiceInfo({
     selectedService
 }) {
     const classes = useStyles();
-    console.log({selectedService})
+
+    const getAvatar = () => {
+        if (selectedService === SERVICES.FRONTEND) {
+            return frontEnd;
+        } else if (selectedService === SERVICES.SEO) {
+            return seo;
+        }
+        return onlineCouching;
+    }
 
     return (
         <Grid container item className={classes.infoContainer}>
             <Grid container item alignItems="center" className={classes.header}>
-                <Avatar aria-label="front-end-service" alt="computer" src={frontEnd} sx={{ width: 25, height: 25, marginRight: 2 }}/>
+                <Avatar aria-label="front-end-service" alt="computer" src={getAvatar()} sx={{ width: 25, height: 25, marginRight: 2 }}/>
                 <Typography variant="h5">
-                    Front-end services
+                    {selectedService.title}
                 </Typography>
             </Grid>
             <Typography align="justify">
-                <strong>ReactJS </strong>is renowned for its extensibility, adjustability and convenience. 
-                Many of the developers acknowledge it one of the best JavaScript open source libraries. 
-                It makes possible the creation of such complex software as web browser and mobile application 
-                user interfaces that accommodate to the strictest standards.
+                <strong>{selectedService.keyWord}</strong> {selectedService.description}
             </Typography>
             <ul>
-                <li>Service 1</li>
-                <li>Service 2</li>
-                <li>Service 3</li>
+                {selectedService.services.map((service, i) => {
+                    return (
+                        <li>{service}</li>
+                    )
+                })}
             </ul>
             <Grid container>
                 <Button variant="contained" >
