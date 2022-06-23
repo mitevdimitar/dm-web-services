@@ -16,6 +16,10 @@ const useStyles = makeStyles({
     header: {
       marginBottom: "20px !important"
     },
+    list: {
+      paddingLeft: 0,
+      listStyle: "none"
+    }
   });
 
 function ServiceInfo({
@@ -34,7 +38,7 @@ function ServiceInfo({
 
     return (
         <Grid container item className={classes.infoContainer}>
-            <Grid container item alignItems="center" className={classes.header}>
+            <Grid container item alignItems="center" className={classes.header} justifyContent={selectedService.justify}>
                 <Avatar aria-label="front-end-service" alt="computer" src={getAvatar()} sx={{ width: 25, height: 25, marginRight: 2 }}/>
                 <Typography variant="h5">
                     {selectedService.title}
@@ -43,14 +47,16 @@ function ServiceInfo({
             <Typography align="justify">
                 <strong>{selectedService.keyWord}</strong> {selectedService.description}
             </Typography>
-            <ul>
-                {selectedService.services.map((service, i) => {
-                    return (
-                        <li>{service}</li>
-                    )
-                })}
-            </ul>
-            <Grid container>
+            <Grid container justifyContent={selectedService.justify}>
+                <ul className={classes.list}>
+                    {selectedService.services.map((service, i) => {
+                        return (
+                            <li>{service}</li>
+                        )
+                    })}
+                </ul>
+            </Grid>
+            <Grid container justifyContent={selectedService.justify}>
                 <Button variant="contained" >
                     Find out more
                 </Button>

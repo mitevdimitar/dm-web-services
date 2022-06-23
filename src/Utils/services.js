@@ -10,7 +10,8 @@ export const SERVICES = {
             "Service 1",
             "Service 2",
             "Service 3"
-        ]
+        ],
+        justify: "flex-start"
     },
     SEO: {
         title: "Seo",
@@ -23,7 +24,8 @@ export const SERVICES = {
             "Service 4",
             "Service 5",
             "Service 6"
-        ]
+        ],
+        justify: "center"
     },
     LIVE_COACHING: {
         title: "Live coaching",
@@ -35,6 +37,7 @@ export const SERVICES = {
             "Service 7",
             "Service 8",
             "Service 9"
-        ]
+        ],
+        justify: "flex-end"
     }
 }
