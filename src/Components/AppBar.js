@@ -16,6 +16,7 @@ import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles(theme => ({
   appBar: {
     backgroundColor: theme.palette.primary.main,
+    position: "sticky !important"
   },
 }));
 
@@ -65,6 +66,7 @@ const MenuBar = () => {
                 horizontal: 'left',
               }}
               keepMounted
+              disableScrollLock={ true }
               transformOrigin={{
                 vertical: 'top',
                 horizontal: 'left',
