@@ -8,6 +8,7 @@ import onlineCouching from "../Assets/img/online-couching.jpg";
 import { SERVICES } from '../Utils/services';
 import useIsInViewport from "use-is-in-viewport";
 import ServiceInfo from '../Components/ServiceInfo';
+import { isMobileDevice } from '../Utils/helpers';
 
 const useStyles = makeStyles({
   root: {
@@ -16,12 +17,15 @@ const useStyles = makeStyles({
     padding: "10%"
   },
   cardsContainer: {
-    height: 300
+    minHeight: 300,
+    "& :first-child": {
+      marginBottom: isMobileDevice() ? 30 : 0
+    }
   },
   cardContainer: {
     //backgroundColor: "#586062",
     color: "white",
-    padding: "0 15px"
+    padding: "0 15px",
   },
   slideRight: {
     animation: "$slideInRight 1.5s forwards",
@@ -63,19 +67,19 @@ function Services() {
         <Grid container id="services" className={classes.root} ref={targetRef}>
             {isInViewport && (
               <Grid container item className={classes.cardsContainer}>
-                <Grid container item xs={4} className={`${classes.cardContainer} ${classes.slideRight}`} onClick={() => setInfo(SERVICES.FRONTEND)}>
+                <Grid container item xs={isMobileDevice() ? 12 : 4} className={`${classes.cardContainer} ${classes.slideRight}`} onClick={() => setInfo(SERVICES.FRONTEND)}>
                     <ServiceCard 
                       service="Front end development"
                       avatar={frontEnd}
                     />
                 </Grid>
-                <Grid container item xs={4} className={classes.cardContainer} onClick={() => setInfo(SERVICES.SEO)}>
+                <Grid container item xs={isMobileDevice() ? 12 : 4} className={classes.cardContainer} onClick={() => setInfo(SERVICES.SEO)}>
                     <ServiceCard 
                       service="Seo optimization" 
                       avatar={seo}
                     />
                 </Grid>
-                <Grid container item xs={4} className={`${classes.cardContainer} ${classes.slideLeft}`} onClick={() => setInfo(SERVICES.LIVE_COACHING)}>
+                <Grid container item xs={isMobileDevice() ? 12 : 4} className={`${classes.cardContainer} ${classes.slideLeft}`} onClick={() => setInfo(SERVICES.LIVE_COACHING)}>
                     <ServiceCard 
                       service="Online coaching"
                       avatar={onlineCouching}
