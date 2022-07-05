@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import { isMobileDevice } from '../Utils/helpers';
 
 const useStyles = makeStyles({
   root: {
@@ -32,9 +33,13 @@ const useStyles = makeStyles({
     backgroundSize: "cover",
   },
   headerContainer: {
-    height: 80,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "flex-end",
+    minHeight: 80,
     color: "rgb(3, 3, 3)",
-    fontWeight: 400
+    fontWeight: 400,
+    padding: "16px 16px 0px !important"
   }
 });
 
@@ -48,13 +53,25 @@ function ServiceCard({
   return (
     <Grid className={classes.root}>
       <CardActionArea className={classes.actionArea}>
+        {isMobileDevice() && (
+          <CardContent className={classes.headerContainer}>
+            <Typography gutterBottom variant="h5" component="div">
+              {service}
+            </Typography>
+          </CardContent>
+        )}
         <Grid container justifyContent="center" className={classes.imageContainer}>
         </Grid>
-        <CardContent className={classes.headerContainer}>
-          <Typography gutterBottom variant="h5" component="div">
-            {service}
-          </Typography>
-        </CardContent>
+        {!isMobileDevice() && (
+          <CardContent className={classes.headerContainer}>
+            <Typography gutterBottom variant="h5" component="div">
+              {service}
+            </Typography>
+          </CardContent>
+        )}
+        <Grid>
+          Hello
+        </Grid>
       </CardActionArea>
     </Grid>
   );

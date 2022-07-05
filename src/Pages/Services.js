@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   cardsContainer: {
     minHeight: 300,
     "& :first-child": {
-      marginBottom: isMobileDevice() ? 30 : 0
+      marginBottom: isMobileDevice() ? 10 : 0
     }
   },
   cardContainer: {
@@ -87,7 +87,7 @@ function Services() {
                 </Grid>
               </Grid>
             ) /* : null */}
-            {info && (
+            {info && !isMobileDevice() && (
               <ServiceInfo selectedService={info} />
             )}
         </Grid>

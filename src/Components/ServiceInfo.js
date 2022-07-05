@@ -51,7 +51,7 @@ function ServiceInfo({
                 <ul className={classes.list}>
                     {selectedService.services.map((service, i) => {
                         return (
-                            <li>{service}</li>
+                            <li key={i}>{service}</li>
                         )
                     })}
                 </ul>
