@@ -69,9 +69,6 @@ function ServiceCard({
             </Typography>
           </CardContent>
         )}
-        <Grid>
-          Hello
-        </Grid>
       </CardActionArea>
     </Grid>
   );

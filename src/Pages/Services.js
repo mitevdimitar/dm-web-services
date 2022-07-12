@@ -73,18 +73,27 @@ function Services() {
                       avatar={frontEnd}
                     />
                 </Grid>
+                {info && isMobileDevice() && (
+                  <ServiceInfo selectedService={info} />
+                )}
                 <Grid container item xs={isMobileDevice() ? 12 : 4} className={classes.cardContainer} onClick={() => setInfo(SERVICES.SEO)}>
                     <ServiceCard 
                       service="Seo optimization" 
                       avatar={seo}
                     />
                 </Grid>
+                {info && isMobileDevice() && (
+                  <ServiceInfo selectedService={info} />
+                )}
                 <Grid container item xs={isMobileDevice() ? 12 : 4} className={`${classes.cardContainer} ${classes.slideLeft}`} onClick={() => setInfo(SERVICES.LIVE_COACHING)}>
                     <ServiceCard 
                       service="Online coaching"
                       avatar={onlineCouching}
                     />
                 </Grid>
+                {info && isMobileDevice() && (
+                  <ServiceInfo selectedService={info} />
+                )}
               </Grid>
             ) /* : null */}
             {info && !isMobileDevice() && (
