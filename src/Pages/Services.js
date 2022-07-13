@@ -18,9 +18,7 @@ const useStyles = makeStyles({
   },
   cardsContainer: {
     minHeight: 300,
-    "& :first-child": {
-      marginBottom: isMobileDevice() ? 10 : 0
-    }
+    marginBottom: isMobileDevice() ? 10 : 0
   },
   cardContainer: {
     //backgroundColor: "#586062",
@@ -73,7 +71,7 @@ function Services() {
                       avatar={frontEnd}
                     />
                 </Grid>
-                {info && isMobileDevice() && (
+                {info === SERVICES.FRONTEND && isMobileDevice() && (
                   <ServiceInfo selectedService={info} />
                 )}
                 <Grid container item xs={isMobileDevice() ? 12 : 4} className={classes.cardContainer} onClick={() => setInfo(SERVICES.SEO)}>
@@ -82,7 +80,7 @@ function Services() {
                       avatar={seo}
                     />
                 </Grid>
-                {info && isMobileDevice() && (
+                {info === SERVICES.SEO && isMobileDevice() && (
                   <ServiceInfo selectedService={info} />
                 )}
                 <Grid container item xs={isMobileDevice() ? 12 : 4} className={`${classes.cardContainer} ${classes.slideLeft}`} onClick={() => setInfo(SERVICES.LIVE_COACHING)}>
@@ -91,7 +89,7 @@ function Services() {
                       avatar={onlineCouching}
                     />
                 </Grid>
-                {info && isMobileDevice() && (
+                {info === SERVICES.LIVE_COACHING && isMobileDevice() && (
                   <ServiceInfo selectedService={info} />
                 )}
               </Grid>
