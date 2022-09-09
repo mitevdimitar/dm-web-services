@@ -1,18 +1,23 @@
-import * as React from 'react';
+import React, { useRef } from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { email } from "../Utils/emailkey";
+import emailjs from '@emailjs/browser';
 
 export default function ContactForm() {
+  const form = useRef();
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+    emailjs.sendForm('gmail', email.TEMPLATE_ID, form.current, email.USER_ID)
+      .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+      }, function(error) {
+        console.log('FAILED...', error);
     });
   };
 
@@ -30,7 +35,7 @@ export default function ContactForm() {
           <Typography component="h1" variant="h5">
             Send us a message
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" ref={form} onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
