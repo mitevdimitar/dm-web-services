@@ -1,4 +1,4 @@
 export const email = {
-    USER_ID: process.env.REACT_APP_USER_ID, //userID
-    TEMPLATE_ID: process.env.REACT_APP_TEMPLATE_ID,         //templateID
+    USER_ID: process.env.REACT_APP_USER_ID,
+    TEMPLATE_ID: process.env.REACT_APP_TEMPLATE_ID,
 }

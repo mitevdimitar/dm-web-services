@@ -13,7 +13,7 @@ export default function ContactForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    emailjs.sendForm('gmail', email.TEMPLATE_ID, form.current, email.USER_ID)
+    emailjs.sendForm('mitev.dimitar', email.TEMPLATE_ID, form.current, email.USER_ID)
       .then(function(response) {
         console.log('SUCCESS!', response.status, response.text);
       }, function(error) {
