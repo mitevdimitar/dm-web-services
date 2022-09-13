@@ -7,18 +7,24 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { makeStyles } from '@mui/styles';
+import { Link } from '@mui/material';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
     backgroundColor: theme.palette.primary.main,
     position: "sticky !important"
   },
+  pageLink: {
+    color: "white !important",
+    marginRight: "20px !important",
+    textTransform: "uppercase",
+    fontSize: "15px"
+  }
 }));
 
-const pages = ['Services', 'Team', 'Contacts'];
+const pages = ['services', 'team', 'contacts'];
 
 const MenuBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -83,13 +89,9 @@ const MenuBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
+              <Link key={page} underline="none" href={`#${page}`} className={classes.pageLink}>
                 {page}
-              </Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>
