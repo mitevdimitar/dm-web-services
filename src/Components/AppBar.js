@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const pages = ['services', 'team', 'contacts'];
+const pages = ['home', 'services', 'team', 'contacts'];
 
 const MenuBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

@@ -35,7 +35,7 @@ function Contacts() {
     const classes = useStyles();
 
     return (
-        <Grid container id="services" className={classes.root} justifyContent="space-around" /* alignItems="center" */>
+        <Grid container id="contacts" className={classes.root} justifyContent="space-around" /* alignItems="center" */>
             <Grid container item xs={4} alignItems="center" justifyContent="center" className={classes.messageForm}>
               <ContactForm />
             </Grid>

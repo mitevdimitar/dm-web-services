@@ -37,7 +37,7 @@ function Team() {
     const classes = useStyles();
 
     return (
-        <Grid container id="services" className={classes.root}>
+        <Grid container id="team" className={classes.root}>
             <Grid container item xs={6} className={classes.infoBlock}>
               <Grid container justifyContent="center" item className={classes.headerContainer}>
                 <Grid container item justifyContent="center">
