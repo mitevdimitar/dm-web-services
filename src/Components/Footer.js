@@ -4,13 +4,14 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import { makeStyles } from '@mui/styles';
+import { isMobileDevice } from '../Utils/helpers';
 
 const useStyles = makeStyles({
   root: {
     backgroundColor: "#586062 !important",
     color: "white",
-    height: 60,
-    display: "flex"
+    height: isMobileDevice() ? "auto" : 60,
+    display: isMobileDevice() ? "block" : "flex"
   },
   whiteButton: {
     color: "white !important"
@@ -22,7 +23,7 @@ function Footer() {
 
     return (
         <Grid containter className={classes.root}>
-            <Grid container alignItems="center" justifyContent="center" direction="column" item xs={4}>
+            <Grid container alignItems="center" justifyContent={isMobileDevice() ? "space-around" : "center"} direction={isMobileDevice() ? "row" : "column"} item xs={isMobileDevice() ? 12 : 4}>
               <Typography>
                 DM Web Service
               </Typography>
@@ -30,21 +31,23 @@ function Footer() {
               © 2022 All rights reserved
               </Typography>
             </Grid>
-            <Grid container alignItems="center" justifyContent="center" item xs={4}>
-              <Button className={classes.whiteButton}>
-                Privacy policy
-              </Button>
-            </Grid>
-            <Grid container alignItems="center" justifyContent="center" item xs={4}>
-              <IconButton className={classes.whiteButton}>
-                <LinkedInIcon />
-              </IconButton>
-              <IconButton className={classes.whiteButton}>
-                <FacebookIcon />
-              </IconButton>
-              <IconButton className={classes.whiteButton}>
-                <YouTubeIcon />
-              </IconButton>
+            <Grid container item xs={isMobileDevice() ? 12 : 8}>
+              <Grid container alignItems="center" justifyContent="center" item xs={6}>
+                <Button className={classes.whiteButton}>
+                  Privacy policy
+                </Button>
+              </Grid>
+              <Grid container alignItems="center" justifyContent="center" item xs={6}>
+                <IconButton className={classes.whiteButton}>
+                  <LinkedInIcon />
+                </IconButton>
+                <IconButton className={classes.whiteButton}>
+                  <FacebookIcon />
+                </IconButton>
+                <IconButton className={classes.whiteButton}>
+                  <YouTubeIcon />
+                </IconButton>
+              </Grid>
             </Grid>
         </Grid>
     )

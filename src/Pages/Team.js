@@ -2,6 +2,7 @@ import Grid from '@mui/material/Grid';
 import aboutUs from "../Assets/img/about-us.jpg";
 import { makeStyles } from '@mui/styles';
 import { Typography } from '@mui/material';
+import { isMobileDevice } from '../Utils/helpers';
 
 const useStyles = makeStyles({
   root: {
@@ -38,7 +39,7 @@ function Team() {
 
     return (
         <Grid container id="team" className={classes.root}>
-            <Grid container item xs={6} className={classes.infoBlock}>
+            <Grid container item xs={isMobileDevice() ? 12 : 6} className={classes.infoBlock}>
               <Grid container justifyContent="center" item className={classes.headerContainer}>
                 <Grid container item justifyContent="center">
                   <Typography variant="h5" className={classes.header}>
@@ -73,7 +74,7 @@ function Team() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container item xs={6} className={classes.imageBlock}>
+            <Grid container item xs={isMobileDevice() ? 12 : 6} className={classes.imageBlock}>
             </Grid>
         </Grid>
     )
