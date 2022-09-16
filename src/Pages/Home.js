@@ -1,17 +1,21 @@
 import Grid from '@mui/material/Grid';
 import { makeStyles } from '@mui/styles';
 import background from "../Assets/img/home.jpeg";
+import mobileBackground from "../Assets/img/mobile-home.jpeg";
+import { isMobileDevice } from '../Utils/helpers';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    backgroundImage: `url(${background})`,
+    backgroundColor: theme.palette.primary.main,
+    backgroundImage: `url(${isMobileDevice() ? mobileBackground : background})`,
     backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
+    backgroundSize: isMobileDevice() ? "contain" : "cover",
     backgroundPositionX: "right",
-    position: "relative"
+    position: "relative",
+    height: isMobileDevice() ? "92vh" : "101vh"
     //if mobile, use backgroundPositionY: 20% either with Size cover or 100% (and extra space for the services)
   },
-});
+}));
 
 
 function Home() {

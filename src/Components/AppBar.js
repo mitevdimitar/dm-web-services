@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import MenuItem from '@mui/material/MenuItem';
 import { makeStyles } from '@mui/styles';
 import { Link } from '@mui/material';
 
@@ -21,6 +20,11 @@ const useStyles = makeStyles(theme => ({
     marginRight: "20px !important",
     textTransform: "uppercase",
     fontSize: "15px"
+  },
+  pageLinkMobile: {
+    width: 120,
+    padding: "5px 10px",
+    fontSize: "1.2rem"
   }
 }));
 
@@ -73,9 +77,9 @@ const MenuBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <Link key={page} underline="none"  onClick={handleCloseNavMenu} href={`#${page}`}>
+                  <Typography className={classes.pageLinkMobile}>{page}</Typography>
+                </Link>
               ))}
             </Menu>
           </Box>
