@@ -8,7 +8,7 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import { makeStyles } from '@mui/styles';
-import { Link } from '@mui/material';
+import { Link, MenuItem } from '@mui/material';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -22,9 +22,12 @@ const useStyles = makeStyles(theme => ({
     fontSize: "15px"
   },
   pageLinkMobile: {
-    width: 120,
     padding: "5px 10px",
-    fontSize: "1.2rem"
+    fontSize: "1.2rem !important"
+  },
+  mobileMenu: {
+    width: "50%",
+    left: 5
   }
 }));
 
@@ -73,13 +76,21 @@ const MenuBar = () => {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', md: 'none' }
+              }}
+              classes={{
+                paper: classes.mobileMenu
               }}
             >
               {pages.map((page) => (
-                <Link key={page} underline="none"  onClick={handleCloseNavMenu} href={`#${page}`}>
-                  <Typography className={classes.pageLinkMobile}>{page}</Typography>
-                </Link>
+                <MenuItem>
+                  {/* <span>
+                    I
+                  </span> */}
+                  <Link key={page} underline="none" onClick={handleCloseNavMenu} href={`#${page}`}>
+                    <Typography className={classes.pageLinkMobile}>{page}</Typography>
+                  </Link>
+                </MenuItem>
               ))}
             </Menu>
           </Box>
