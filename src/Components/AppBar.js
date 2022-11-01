@@ -9,6 +9,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import { makeStyles } from '@mui/styles';
 import { Link, MenuItem } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
+import { MENU_ITEMS } from '../Utils/constants';
+import HandymanIcon from '@mui/icons-material/Handyman';
+import GroupsIcon from '@mui/icons-material/Groups';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -31,7 +36,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const pages = ['home', 'services', 'team', 'contacts'];
+const pages = Object.values(MENU_ITEMS);
 
 const MenuBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -44,6 +49,21 @@ const MenuBar = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+
+  const renderIcon = (menuItem) => {
+    switch(menuItem) {
+      case MENU_ITEMS.HOME:
+        return <HomeIcon />
+      case MENU_ITEMS.SERVICES:
+        return <HandymanIcon />
+      case MENU_ITEMS.TEAM:
+        return <GroupsIcon />
+      case MENU_ITEMS.CONTACTS:
+        return <ContactMailIcon />
+      default:
+        return null
+    }
+  }
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
@@ -84,9 +104,7 @@ const MenuBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem>
-                  {/* <span>
-                    I
-                  </span> */}
+                  {renderIcon(page)}
                   <Link key={page} underline="none" onClick={handleCloseNavMenu} href={`#${page}`}>
                     <Typography className={classes.pageLinkMobile}>{page}</Typography>
                   </Link>
