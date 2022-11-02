@@ -9,6 +9,7 @@ import { SERVICES } from '../Utils/services';
 import useIsInViewport from "use-is-in-viewport";
 import ServiceInfo from '../Components/ServiceInfo';
 import { isMobileDevice } from '../Utils/helpers';
+import { Button } from '@mui/material';
 
 const useStyles = makeStyles({
   root: {
@@ -18,6 +19,7 @@ const useStyles = makeStyles({
   },
   cardsContainer: {
     minHeight: 300,
+    height: "100%",
     marginBottom: isMobileDevice() ? 10 : 0
   },
   cardContainer: {
@@ -42,6 +44,14 @@ const useStyles = makeStyles({
   slideLeft: {
     animation: "$slideInLeft 1.5s forwards",
     animationIterationCount: 1
+  },
+  buttonContainer: {
+    marginTop: "3rem",
+    minHeight: !isMobileDevice() && 150
+  },
+  button: {
+    padding: "1rem 4rem !important",
+    borderRadius: "20px !important"
   },
   "@keyframes slideInLeft": {
     "0%": {
@@ -91,6 +101,17 @@ function Services() {
                 </Grid>
                 {info === SERVICES.LIVE_COACHING && isMobileDevice() && (
                   <ServiceInfo selectedService={info} />
+                )}
+                {!info && (
+                  <Grid container alignItems="center" justifyContent="center" className={classes.buttonContainer}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                    >
+                      Find out more
+                    </Button>
+                  </Grid>
                 )}
               </Grid>
             ) /* : null */}
