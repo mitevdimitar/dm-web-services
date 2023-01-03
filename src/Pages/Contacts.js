@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid';
 import { makeStyles } from '@mui/styles';
-import ContactForm from '../Components/ContactForm';
+import ContactForm from '../Components/ContactForm/ContactForm';
 import Typography from '@mui/material/Typography';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';

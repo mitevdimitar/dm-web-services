@@ -5,8 +5,9 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { email } from "../Utils/emailkey";
+import { email } from "../../Utils/emailkey";
 import emailjs from '@emailjs/browser';
+import NameInput from './NameInput';
 
 export default function ContactForm() {
   const form = useRef();
@@ -36,15 +37,7 @@ export default function ContactForm() {
             Send us a message
           </Typography>
           <Box component="form" ref={form} onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="name"
-              label="Name"
-              id="name"
-              //autoFocus
-            />
+            <NameInput />
             <TextField
               margin="normal"
               required
